@@ -5,10 +5,11 @@
   ...
 }:
 {
-
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
     services.nix-daemon.enable = true;
+
+    environment.shells = [ pkgs.fish ];
 
     security.pam.enableSudoTouchIdAuth = true;
 
