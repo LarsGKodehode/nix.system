@@ -31,6 +31,8 @@ inputs.darwin.lib.darwinSystem {
       kubernetes.enable = true;
       infrastructure-as-code.enable = true;
 
+      toolchain.rust.enable = true;
+
       # Services
     }
   ];
