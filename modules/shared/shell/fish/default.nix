@@ -59,21 +59,11 @@
         sc = "systemctl";
         scs = "systemctl status";
         sca = "systemctl cat";
-        m = "make";
         t = "trash";
 
         # Vim
         v = "vim";
         vl = "vim -c 'normal! `0'";
-
-        # Cheat Sheets
-        ssl = "openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr";
-        fingerprint = "ssh-keyscan myhost.com | ssh-keygen -lf -";
-        publickey = "ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub";
-
-        # Docker
-        dr = "docker run --rm -it";
-        db = "docker build . -t";
       };
 
       shellInit = "";
@@ -82,6 +72,5 @@
     home.sessionVariables.fish_greeting = "";
 
     programs.starship.enableFishIntegration = true;
-    programs.fzf.enableFishIntegration = true;
   };
 }
