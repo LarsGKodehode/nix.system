@@ -55,6 +55,7 @@
       # Full macOS builds
       darwinConfigurations = {
         lupus = import ./host/lupus { inherit inputs globals overlays; };
+        minmus = import ./host/minmus { inherit inputs globals overlays; };
       };
 
       # Development environments

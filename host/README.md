@@ -3,6 +3,7 @@
 | Name     | Description               |
 | -------- | ------------------------- |
 | lupus    | Daily driver, MacBook Air |
+| minmus   | Minimal MacOS system      |
 
 ## Install Instructions
 
