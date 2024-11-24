@@ -33,6 +33,7 @@ inputs.darwin.lib.darwinSystem {
       toolchain.kubernetes.enable = true;
       toolchain.infrastructure-as-code.enable = true;
       toolchain.rust.enable = true;
+      toolchain.dotnet.enable = true;
 
       # Services
     }
