@@ -28,6 +28,7 @@ inputs.darwin.lib.darwinSystem {
 
       # Applications
       alacritty.enable = true;
+      kubernetes.enable = true;
 
       # Services
     }

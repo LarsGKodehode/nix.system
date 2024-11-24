@@ -7,9 +7,10 @@
 
 {
   imports = [
+    ./nixpkgs.nix
     ./shell
     ./applications
-    ./nixpkgs.nix
+    ./programming
   ];
 
   options = {
