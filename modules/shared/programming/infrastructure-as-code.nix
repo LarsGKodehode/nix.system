@@ -6,9 +6,9 @@
 }:
 
 {
-  options.infrastructure-as-code.enable = lib.mkEnableOption "Infrastructure as Code tools.";
+  options.toolchain.infrastructure-as-code.enable = lib.mkEnableOption "Infrastructure as Code tools.";
 
-  config = lib.mkIf config.infrastructure-as-code.enable {
+  config = lib.mkIf config.toolchain.infrastructure-as-code.enable {
     unfreePackages = [
       "terraform"
     ];

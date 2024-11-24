@@ -6,9 +6,9 @@
 }:
 {
 
-  options.kubernetes.enable = lib.mkEnableOption "Kubernetes tools.";
+  options.toolchain.kubernetes.enable = lib.mkEnableOption "Kubernetes tools.";
 
-  config = lib.mkIf config.kubernetes.enable {
+  config = lib.mkIf config.toolchain.kubernetes.enable {
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [

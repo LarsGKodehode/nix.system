@@ -28,9 +28,10 @@ inputs.darwin.lib.darwinSystem {
 
       # Applications
       alacritty.enable = true;
-      kubernetes.enable = true;
-      infrastructure-as-code.enable = true;
 
+      # Language Toolchains
+      toolchain.kubernetes.enable = true;
+      toolchain.infrastructure-as-code.enable = true;
       toolchain.rust.enable = true;
 
       # Services
