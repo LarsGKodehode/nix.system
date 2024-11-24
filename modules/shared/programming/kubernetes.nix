@@ -14,7 +14,7 @@
       home.packages = with pkgs; [
         kubectl # Basic Kubernetes queries
         kubernetes-helm # Helm CLI
-        
+
         fluxcd # Bootstrap clusters with Flux
         kustomize # Kustomize CLI (for Flux)
       ];
