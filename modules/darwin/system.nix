@@ -18,15 +18,28 @@
       stateVersion = 5;
 
       defaults = {
-        NSGlobalDomain = { };
+        dock = {
+          # Automatically show and hide the dock
+          autohide = true;
 
-        dock = { };
+          # Add translucency in dock for hidden applications
+          showhidden = true;
 
-        finder = { };
+          # Enable spring loading on all dock items
+          enable-spring-load-actions-on-all-items = true;
 
-        CustomUserPreferences = { };
+          # Highlight hover effect in dock stack grid view
+          mouse-over-hilite-stack = true;
 
-        CustomSystemPreferences = { };
+          mineffect = "genie";
+          orientation = "left";
+          show-recents = false;
+          tilesize = 44;
+
+          persistent-apps = [
+            "${pkgs.alacritty}/Applications/Alacritty.app"
+          ];
+        };
       };
     };
 

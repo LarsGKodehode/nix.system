@@ -8,6 +8,7 @@
 {
   imports = [
     ./shell
+    ./applications
     ./nixpkgs.nix
   ];
 
@@ -25,6 +26,13 @@
       dark = lib.mkOption {
         type = lib.types.bool;
         description = "Enable dark mode.";
+      };
+    };
+
+    gui = {
+      enable = lib.mkEnableOption {
+        description = "Enable graphics.";
+        default = false;
       };
     };
 

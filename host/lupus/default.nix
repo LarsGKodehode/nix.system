@@ -27,6 +27,7 @@ inputs.darwin.lib.darwinSystem {
       };
 
       # Applications
+      alacritty.enable = true;
 
       # Services
     }
