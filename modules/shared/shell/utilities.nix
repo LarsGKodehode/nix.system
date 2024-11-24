@@ -14,9 +14,8 @@
         jless # JSON viewer
         jo # JSON output
         jq # JSON manipulation
-        lf # File viewer
         qrencode # Generate qr codes
-        rsync # Copy folders
+        rsync # Copy foldersj
         ripgrep # grep
         sd # sed
         tree # View directory hierarchy
