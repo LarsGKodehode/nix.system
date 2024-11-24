@@ -9,6 +9,9 @@
       whitelist = {
         prefix = [ config.dotfilesPath ];
       };
+      # Disable environment variable diff dump
+      # Nix environment variables are just to nosiy
+      hide_env_diff = true;
     };
   };
 
