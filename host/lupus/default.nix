@@ -13,7 +13,7 @@ inputs.darwin.lib.darwinSystem {
     (
       globals
       // rec {
-        homePath = "/Users/zab";
+        homePath = "/Users/${globals.user}";
       }
     )
     inputs.home-manager.darwinModules.home-manager
