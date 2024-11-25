@@ -8,5 +8,6 @@
     ./user.nix
     ./networking.nix
     ./alacritty.nix
+    ./homebrew.nix
   ];
 }
