@@ -36,6 +36,7 @@ inputs.darwin.lib.darwinSystem {
       toolchain.dotnet.enable = true;
 
       # Services
+      dnsmasq.enable = true;
     }
   ];
 }
