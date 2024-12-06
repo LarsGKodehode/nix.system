@@ -67,7 +67,10 @@
       shellInit = "";
     };
 
-    home.sessionVariables.fish_greeting = "";
+    home.sessionVariables = {
+      fish_greeting = "";
+      EDITOR="vi";
+    };
 
     programs.starship.enableFishIntegration = true;
   };
