@@ -32,6 +32,7 @@ inputs.darwin.lib.darwinSystem {
       # Language Toolchains
       toolchain.kubernetes.enable = true;
       toolchain.infrastructure-as-code.enable = true;
+      toolchain.nix.enable = true;
       toolchain.rust.enable = false;
       toolchain.dotnet.enable = true;
 
