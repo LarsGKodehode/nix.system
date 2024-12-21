@@ -59,6 +59,7 @@ in
           ".direnv/**"
           "result"
           ".DS_Store"
+          ".vscode"
         ];
       };
 
