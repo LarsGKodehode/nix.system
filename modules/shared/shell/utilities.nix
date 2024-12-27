@@ -23,6 +23,7 @@
         dua # File sizes (du)
         du-dust # Disk usage tree (ncdu)
         duf # Basic disk information (df)
+        mktemp # Fixes issues on MacOS, https://github.com/NixOS/nix/pull/4491
       ];
     };
   };

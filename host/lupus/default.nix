@@ -35,7 +35,7 @@ inputs.darwin.lib.darwinSystem {
       toolchain.infrastructure-as-code.enable = true;
       toolchain.nix.enable = true;
       toolchain.rust.enable = false;
-      toolchain.dotnet.enable = true;
+      toolchain.dotnet.enable = false;
 
       # Services
       dnsmasq.enable = true;
