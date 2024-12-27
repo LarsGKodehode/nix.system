@@ -40,13 +40,25 @@
       # Modifications to the declared inputs
       overlays = [ ];
 
-      # Systems supported
-      supportedSystems = [
+      # Helpers for generating attribute sets across systems
+      withSystem = nixpkgs.lib.genAttrs [
+        # "x86_64-linux"
+        # "x86_64-darwin"
+        # "aarch64-linux"
         "aarch64-darwin"
       ];
 
-      # Helper for generating attribute sets
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      withPkgs =
+        callback:
+        withSystem (
+          system:
+          callback (
+            import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            }
+          )
+        );
     in
     {
       # Full NixOS builds
@@ -59,11 +71,8 @@
       };
 
       # Development environments
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
+      devShells = withPkgs (
+        pkgs:
         {
           # For working on this repository
           default = pkgs.mkShell {
@@ -80,12 +89,6 @@
 
       # For formatting the repository
       # "nix fmt"
-      formatter = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system overlays; };
-        in
-        pkgs.nixfmt-rfc-style
-      );
+      formatter = withPkgs (pkgs: pkgs.nixfmt-rfc-style);
     };
 }
