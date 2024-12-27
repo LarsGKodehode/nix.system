@@ -29,7 +29,8 @@ inputs.darwin.lib.darwinSystem {
       # Applications
       alacritty.enable = true;
 
-      # Language Toolchains
+      # Programming Toolchains
+      toolchain.misc-tooling.enable = false;
       toolchain.kubernetes.enable = true;
       toolchain.infrastructure-as-code.enable = true;
       toolchain.nix.enable = true;
