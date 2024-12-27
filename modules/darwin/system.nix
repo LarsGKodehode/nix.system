@@ -7,6 +7,8 @@
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
+    # Nice list of options:
+    # https://mynixos.com/nix-darwin/options
     services.nix-daemon.enable = true;
 
     environment.shells = [ pkgs.fish ];
