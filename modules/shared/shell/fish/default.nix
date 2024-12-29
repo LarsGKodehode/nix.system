@@ -4,6 +4,7 @@
   lib,
   ...
 }:
+
 {
   programs.fish.enable = true;
 
@@ -69,7 +70,7 @@
 
     home.sessionVariables = {
       fish_greeting = "";
-      EDITOR="vi";
+      EDITOR = "vi";
     };
 
     programs.starship.enableFishIntegration = true;

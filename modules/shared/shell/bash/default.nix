@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-{
 
+{
   config = {
     home-manager.users.${config.user} = {
 

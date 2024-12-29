@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-{
 
+{
   # MacOS-specific settings for Alacritty
   home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
     programs.alacritty.settings = {

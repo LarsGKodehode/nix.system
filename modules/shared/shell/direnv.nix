@@ -1,6 +1,6 @@
 { config, ... }:
-{
 
+{
   # Enables quickly entering Nix shells when changing directories
   home-manager.users.${config.user}.programs.direnv = {
     enable = true;
@@ -10,7 +10,7 @@
         prefix = [ config.dotfilesPath ];
       };
       # Disable environment variable diff dump
-      # Nix environment variables are just to nosiy
+      # Nix environment variables are just to nosisy
       hide_env_diff = true;
     };
   };

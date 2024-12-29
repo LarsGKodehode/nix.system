@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-{
 
+{
   home-manager.users.${config.user} = {
     # Automatically enable GitHub CLI if git is enabled
     programs.gh = lib.mkIf config.home-manager.users.${config.user}.programs.git.enable {

@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-{
 
+{
   options.toolchain.kubernetes.enable = lib.mkEnableOption "Kubernetes tools.";
 
   config = lib.mkIf config.toolchain.kubernetes.enable {

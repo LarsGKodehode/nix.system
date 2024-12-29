@@ -18,7 +18,6 @@
   };
 
   config = {
-
     home-manager.users.root.programs.git = {
       enable = true;
       extraConfig.safe.directory = config.dotfilesPath;

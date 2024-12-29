@@ -70,21 +70,18 @@
         minmus = import ./host/minmus { inherit inputs globals overlays; };
       };
 
-      # Development environments
-      devShells = withPkgs (
-        pkgs:
-        {
-          # For working on this repository
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.git
-            ];
-          };
-        }
-      );
-
       # Standalone applications
       packages = { };
+
+      # Development environments
+      devShells = withPkgs (pkgs: {
+        # For working on this repository
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.git
+          ];
+        };
+      });
 
       # For formatting the repository
       # "nix fmt"
