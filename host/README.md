@@ -4,6 +4,7 @@
 | -------- | ------------------------- |
 | lupus    | Daily driver, MacBook Air |
 | minmus   | Minimal MacOS system      |
+| luna     | WSL, developer version    |
 
 ## Install Instructions
 
