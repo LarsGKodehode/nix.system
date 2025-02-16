@@ -42,6 +42,7 @@ inputs.nixpkgs.lib.nixosSystem {
       wsl = {
         enable = true;
         defaultUser = globals.user;
+        docker-desktop.enable = true;
         wslConf.network.generateResolveConf = true; # Turn off if it breaks VPN
         interop.includePath = false; #Including Windows PATH will slow down other systems, filesystem cross talk
       };
