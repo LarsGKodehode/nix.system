@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Windows Subsystem for Linux config
+    wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Used for dynamic user files
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -24,6 +30,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      wsl,
     }@inputs:
     let
       # Global configuration sourced by other files
@@ -42,7 +49,7 @@
 
       # Helpers for generating attribute sets across systems
       withSystem = nixpkgs.lib.genAttrs [
-        # "x86_64-linux"
+        "x86_64-linux"
         # "x86_64-darwin"
         # "aarch64-linux"
         "aarch64-darwin"
@@ -62,7 +69,9 @@
     in
     {
       # Full NixOS builds
-      nixosConfigurations = { };
+      nixosConfigurations = {
+        luna = import ./host/luna { inherit inputs globals overlays; };
+      };
 
       # Full macOS builds
       darwinConfigurations = {
@@ -79,6 +88,7 @@
         default = pkgs.mkShell {
           packages = [
             pkgs.git
+            pkgs.vim
           ];
         };
       });
