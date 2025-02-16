@@ -46,6 +46,10 @@ inputs.nixpkgs.lib.nixosSystem {
         interop.includePath = false; #Including Windows PATH will slow down other systems, filesystem cross talk
       };
 
+      # Enable the VS Code server for remote work
+      # TODO! Figure out how to extract all parts of this into it's own module
+      programs.nix-ld.enable = true;
+
       # Applications
       alacritty.enable = false;
 
