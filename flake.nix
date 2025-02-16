@@ -22,15 +22,20 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Used for dynamically linked libraries
+    # Required for VS Code Server in WSL derivations
+    nix-ld-rs = {
+      url = "github:nix-community/nix-ld-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      darwin,
-      home-manager,
-      wsl,
+      ...
     }@inputs:
     let
       # Global configuration sourced by other files
