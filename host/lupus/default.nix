@@ -36,9 +36,6 @@ inputs.darwin.lib.darwinSystem {
       toolchain.nix.enable = true;
       toolchain.rust.enable = false;
       toolchain.dotnet.enable = false;
-
-      # Services
-      dnsmasq.enable = true;
     }
   ];
 }
