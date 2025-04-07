@@ -53,12 +53,13 @@ inputs.nixpkgs.lib.nixosSystem {
       # Enable the VS Code server for remote work
       # TODO! Figure out how to extract all parts of this into it's own module
       programs.nix-ld.enable = true;
-      
+
       # Applications
       alacritty.enable = false;
 
-      # Programming Toolchains
+      # Development Toolchains
       toolchain.nix.enable = true;
+      toolchain.kubernetes.enable = true;
 
       # Add window side VS Code to PATH
       home-manager.users.${globals.user}.home.sessionPath = [
