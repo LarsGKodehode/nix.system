@@ -1,7 +1,6 @@
 {
   inputs,
   globals,
-  overlays,
 }:
 
 inputs.darwin.lib.darwinSystem {
@@ -12,7 +11,7 @@ inputs.darwin.lib.darwinSystem {
     ../../modules/darwin
     (
       globals
-      // rec {
+      // {
         homePath = "/Users/${globals.user}";
       }
     )

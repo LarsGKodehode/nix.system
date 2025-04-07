@@ -1,7 +1,6 @@
 {
   inputs,
   globals,
-  overlays,
 }:
 
 let
@@ -15,7 +14,7 @@ inputs.nixpkgs.lib.nixosSystem {
     ../../modules/shared
     (
       globals
-      // rec {
+      // {
         homePath = "/home/${globals.user}";
       }
     )
@@ -45,7 +44,7 @@ inputs.nixpkgs.lib.nixosSystem {
         defaultUser = globals.user;
         docker-desktop.enable = true;
         wslConf.network.generateResolveConf = true; # Turn off if it breaks VPN
-        interop.includePath = false; #Including Windows PATH will slow down other systems, filesystem cross talk
+        interop.includePath = false; # Including Windows PATH will slow down other systems, filesystem cross talk
         # Hack around fish not entered at boot
         wslConf.boot.command = "fish";
       };
