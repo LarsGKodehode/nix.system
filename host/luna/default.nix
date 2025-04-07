@@ -6,6 +6,7 @@
 
 let
   system = "x86_64-linux";
+  windowsUser = "larsg";
 in
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
@@ -58,6 +59,11 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programming Toolchains
       toolchain.nix.enable = true;
+
+      # Add window side VS Code to PATH
+      home-manager.users.${globals.user}.home.sessionPath = [
+        "/mnt/c/Users/${windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin"
+      ];
     }
   ];
 }
