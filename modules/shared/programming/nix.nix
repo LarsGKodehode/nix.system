@@ -13,6 +13,7 @@
 
       home.packages = with pkgs; [
         nil # Nix Language Server
+        nixfmt-rfc-style # Formatter to use
       ];
 
       home.sessionVariables = { };
