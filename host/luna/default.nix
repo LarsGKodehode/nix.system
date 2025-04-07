@@ -56,11 +56,6 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Programming Toolchains
       toolchain.nix.enable = true;
-      toolchain.misc-tooling.enable = false;
-      toolchain.kubernetes.enable = false;
-      toolchain.infrastructure-as-code.enable = false;
-      toolchain.rust.enable = false;
-      toolchain.dotnet.enable = false;
     }
   ];
 }
