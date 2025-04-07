@@ -30,12 +30,8 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
 
       # Programming Toolchains
-      toolchain.misc-tooling.enable = false;
       toolchain.kubernetes.enable = true;
-      toolchain.infrastructure-as-code.enable = true;
       toolchain.nix.enable = true;
-      toolchain.rust.enable = false;
-      toolchain.dotnet.enable = false;
     }
   ];
 }
