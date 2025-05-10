@@ -30,7 +30,6 @@ inputs.darwin.lib.darwinSystem {
       alacritty.enable = true;
 
       # Programming Toolchains
-      toolchain.kubernetes.enable = true;
       toolchain.nix.enable = true;
     }
   ];
