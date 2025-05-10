@@ -1,6 +1,7 @@
 {
   inputs,
   globals,
+  overlays,
 }:
 
 inputs.darwin.lib.darwinSystem {
