@@ -7,20 +7,12 @@
 {
   home-manager.users.${config.user}.programs.starship = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
-      add_newline = false; # Don't print new line at the start of the prompt
-
-      format = lib.concatStrings [
-        "$directory"
-        "$git_branch"
-        "$git_commit"
-        "$git_status"
-        "$hostname"
-        "$cmd_duration"
-        "$character"
-      ];
-
-      right_format = "$nix_shell";
+      format = ''
+      $os$username$hostname$directory$git_branch$git_commit$git_status
+      $cmd_duration$character
+      '';
 
       character = {
         success_symbol = "[❯](bold green)";
@@ -43,7 +35,7 @@
       };
 
       git_status = {
-        format = "([$all_status$ahead_behind]($style) )";
+        format = "([$all_status$ahead_behind]($style))";
         conflicted = "=";
         ahead = "⇡";
         behind = "⇣";
@@ -57,15 +49,43 @@
         style = "red";
       };
 
-      hostname = {
-        ssh_only = true;
-        format = "on [$hostname](bold red) ";
+      username = {
+        format = "[$user]($style)";
+        show_always = true;
       };
 
-      nix_shell = {
-        format = "[$symbol $name]($style)";
-        symbol = "❄️";
+      hostname = {
+        format = "[@$hostname](bold red) ";
+        ssh_only = false;
       };
+
+      fill = {
+        symbol = " ";
+      };
+
+      cmd_duration = {
+        format = "[$duration]($style) ";
+        min_time = 1000;
+        show_milliseconds = true;
+      };
+
+      os = {
+        format = "$symbol";
+        disabled = false;
+        symbols = {
+          Alpine = "🏔️";
+          Arch = "🎗️";
+          Debian = "🌀";
+          Kali = "🐉";
+          Macos = "🍎";
+          NixOS = "❄️";
+          Raspbian = "🍓";
+          Ubuntu = "🎯";
+          Unknown = "❓";
+          Windows = "🪟";
+        };
+      };
+
     };
   };
 }
