@@ -1,8 +1,10 @@
+#!/usr/bin/env lua
+
 local settings = require("settings")
 local colors = require("colors")
 
 -- Equivalent to the --default domain
-sbar.default({
+Sbar.default({
   updates = "when_shown",
   icon = {
     font = {
@@ -10,7 +12,7 @@ sbar.default({
       style = "Bold",
       size = 14.0
     },
-    color = colors.white,
+    color = colors.base07,
     padding_left = settings.paddings,
     padding_right = settings.paddings,
   },
@@ -20,7 +22,7 @@ sbar.default({
       style = "Semibold",
       size = 13.0
     },
-    color = colors.white,
+    color = colors.base07,
     padding_left = settings.paddings,
     padding_right = settings.paddings,
   },
@@ -33,8 +35,8 @@ sbar.default({
     background = {
       border_width = 2,
       corner_radius = 9,
-      border_color = colors.popup.border,
-      color = colors.popup.bg,
+      border_color = colors.base00,
+      color = colors.base02,
       shadow = { drawing = true },
     },
     blur_radius = 20,

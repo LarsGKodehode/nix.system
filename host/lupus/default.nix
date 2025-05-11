@@ -27,7 +27,7 @@ inputs.darwin.lib.darwinSystem {
       };
 
       # Applications
-      alacritty.enable = true;
+      # alacritty.enable = true;
 
       # Programming Toolchains
       toolchain.nix.enable = true;

@@ -15,8 +15,8 @@
       '';
 
       character = {
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[❯](bold red)";
+        success_symbol = "[󰘧](bold green)";
+        error_symbol = "[󰘧](bold red)";
         vicmd_symbol = "[❮](bold green)";
       };
 
@@ -73,16 +73,16 @@
         format = "$symbol";
         disabled = false;
         symbols = {
-          Alpine = "🏔️";
-          Arch = "🎗️";
-          Debian = "🌀";
-          Kali = "🐉";
-          Macos = "🍎";
-          NixOS = "❄️";
-          Raspbian = "🍓";
-          Ubuntu = "🎯";
-          Unknown = "❓";
-          Windows = "🪟";
+          Alpine = "";
+          Arch = "";
+          Debian = "";
+          Kali = "";
+          Macos = "";
+          NixOS = "";
+          Raspbian = "";
+          Ubuntu = "";
+          Unknown = "";
+          Windows = "";
         };
       };
 

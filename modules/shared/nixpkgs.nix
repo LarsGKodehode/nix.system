@@ -26,6 +26,14 @@
     };
   };
 
+
+  # faster rebuilding
+  documentation = {
+    doc.enable = false;
+    info.enable = false;
+    man.enable = lib.mkDefault true;
+  };
+
   nix = {
     # Set channel to flake packages, used for nix-shell commands
     nixPath = [ "nixpkgs=${pkgs.path}" ];
@@ -54,9 +62,7 @@
     };
 
     settings = {
-
       # Add community Cachix to binary cache
-      # Don't use with macOS because blocked by corporate firewall
       builders-use-substitutes = true;
       substituters = [
         "https://nix-community.cachix.org"

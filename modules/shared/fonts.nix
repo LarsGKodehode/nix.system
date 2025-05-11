@@ -7,16 +7,28 @@
 
 {
   home-manager.users.${config.user} = {
-    fonts = {
-      fontconfig.enable = true;
+    fonts.fontconfig = {
+      defaultFonts = {
+        monospace = ["Monaspace Argon, Symbols Nerd Font"];
+      };
+      enable = true;
     };
   };
 
   # Add NerdFonts
-  fonts = {
-    packages = [
-      pkgs.nerd-fonts.ubuntu-mono
-      pkgs.nerd-fonts.hack
-    ];
-  };
+  fonts.packages = with pkgs; [
+    # Desktop Fonts
+    b612 # high legibility
+    material-icons
+    material-design-icons
+
+    # Emojis
+    noto-fonts-color-emoji
+    noto-fonts-monochrome-emoji
+
+    # Nerd Fonts
+    cascadia-code
+    monaspace
+    nerd-fonts.symbols-only
+  ];
 }
