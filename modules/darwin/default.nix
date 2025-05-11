@@ -10,5 +10,6 @@
     ./alacritty.nix
     ./homebrew.nix
     ./sketchybar
+    ./aerospace
   ];
 }
