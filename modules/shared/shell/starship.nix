@@ -10,8 +10,8 @@
     enableFishIntegration = true;
     settings = {
       format = ''
-      $os$username$hostname$directory$git_branch$git_commit$git_status
-      $cmd_duration$character
+        $os$username$hostname$directory$git_branch$git_commit$git_status$fill$cmd_duration
+        $character
       '';
 
       character = {
@@ -30,7 +30,7 @@
       };
 
       git_commit = {
-        format = "( @ [$hash]($style) )";
+        format = " (@[$hash]($style) )";
         only_detached = false;
       };
 
@@ -64,13 +64,13 @@
       };
 
       cmd_duration = {
-        format = "[$duration]($style) ";
+        format = "[$duration]($style)";
         min_time = 1000;
         show_milliseconds = true;
       };
 
       os = {
-        format = "$symbol";
+        format = "$symbol ";
         disabled = false;
         symbols = {
           Alpine = "";
