@@ -11,6 +11,10 @@ return {
 	reboot = "",
 	sleep = "⏾",
 	ical = "",
+	identity = {
+		anonymous = "",
+		assumed = "",
+	},
 	volume = {
 		_100 = "",
 		_66 = "􀊧",
