@@ -19,7 +19,7 @@
     services.sketchybar = {
       enable = true;
       config = ''
-        sketchybar --reload $HOME/.config/sketchybar/sketchybarrc
+        ${pkgs.sketchybar}/bin/sketchybar --reload $HOME/.config/sketchybar/sketchybarrc
       '';
     };
 
