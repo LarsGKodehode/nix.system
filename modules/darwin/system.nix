@@ -6,17 +6,12 @@
 
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
-
     # Nice list of options:
     # https://mynixos.com/nix-darwin/options
-    services.nix-daemon.enable = true;
-
     environment.shells = [ pkgs.fish ];
-
-    security.pam.enableSudoTouchIdAuth = true;
+    security.pam.services.sudo_local.touchIdAuth = true;
 
     system = {
-
       stateVersion = 5;
 
       defaults = {
