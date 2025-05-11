@@ -8,6 +8,7 @@
 {
   imports = [
     ./nixpkgs.nix
+    ./fonts.nix
     ./shell
     ./applications
     ./programming
@@ -66,6 +67,7 @@
         vim
         wget
         curl
+        pkgs.lua5_4
       ];
 
       # Use the system-level nixpkgs instead of Home Manager's

@@ -9,5 +9,6 @@
     ./networking.nix
     ./alacritty.nix
     ./homebrew.nix
+    ./sketchybar
   ];
 }
