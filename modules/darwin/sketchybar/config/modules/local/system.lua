@@ -5,13 +5,15 @@ local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
 
 local system_logo = Sbar.add("item", {
   padding_right = 15,
-  padding_left = -5,
+  padding_left = -10,
   click_script = popup_toggle,
+  y_offset = 2,
   icon = {
     string = icons.apple,
     font = {
-      size = 16,
+      size = 24,
     },
+    color = colors.green,
   },
   label = {
     drawing = true,
