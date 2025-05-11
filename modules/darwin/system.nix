@@ -15,6 +15,11 @@
 
     security.pam.enableSudoTouchIdAuth = true;
 
+    # Add NerdFonts
+    fonts.packages = [
+      pkgs.nerd-fonts.ubuntu-mono
+    ];
+
     system = {
 
       stateVersion = 5;
