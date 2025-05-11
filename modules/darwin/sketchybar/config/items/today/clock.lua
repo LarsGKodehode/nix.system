@@ -1,5 +1,6 @@
 #!/usr/bin/env lua
 
+local colors = require "colors"
 local settings = require("settings")
 
 local today = {}
@@ -7,7 +8,8 @@ local today = {}
 today.clock = Sbar.add("item", "clock", {
 	icon = {
 		align = "right",
-		padding_right = 0,
+		padding_right = 6,
+		padding_left = 8,
 		font = {
 			family = settings.font,
 			style = "Bold",
@@ -20,6 +22,8 @@ today.clock = Sbar.add("item", "clock", {
 	background = {
 		padding_left = 0,
 		padding_right = 0,
+		color = colors.base03,
+		height = 24,
 	},
 	position = "right",
 	update_freq = 10,
