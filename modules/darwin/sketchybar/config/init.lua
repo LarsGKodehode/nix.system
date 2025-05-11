@@ -2,4 +2,4 @@
 
 require("bar")
 require("default")
-require("items")
+require("modules")
