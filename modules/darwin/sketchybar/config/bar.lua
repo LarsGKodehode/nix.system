@@ -2,7 +2,7 @@
 
 local colors = require("colors")
 
-local bar_height = 26
+local bar_height = 27
 
 -- Equivalent to the --bar domain
 Sbar.bar({
