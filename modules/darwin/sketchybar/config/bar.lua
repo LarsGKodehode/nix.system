@@ -14,7 +14,7 @@ Sbar.bar({
 	height = bar_height,
 	margin = 6,
 	notch_width = 0,
-	padding_left = 18,
+	padding_left = 10,
 	padding_right = 10,
 	position = "top",
 	shadow = true,
