@@ -75,13 +75,13 @@
     {
       # Full NixOS builds
       nixosConfigurations = {
-        luna = import ./host/luna { inherit inputs globals overlays; };
+        luna = import ./hosts/luna { inherit inputs globals overlays; };
       };
 
       # Full macOS builds
       darwinConfigurations = {
-        lupus = import ./host/lupus { inherit inputs globals overlays; };
-        minmus = import ./host/minmus { inherit inputs globals overlays; };
+        lupus = import ./hosts/lupus { inherit inputs globals overlays; };
+        minmus = import ./hosts/minmus { inherit inputs globals overlays; };
       };
 
       # Standalone applications
