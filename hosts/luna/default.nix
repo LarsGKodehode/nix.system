@@ -59,7 +59,6 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Development Toolchains
       toolchain.nix.enable = true;
-      toolchain.kubernetes.enable = true;
 
       # Add window side VS Code to PATH
       home-manager.users.${globals.user}.home.sessionPath = [
