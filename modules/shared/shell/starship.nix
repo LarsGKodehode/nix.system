@@ -9,10 +9,9 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      format = ''
-        $os$username$hostname$directory$git_branch$git_commit$git_status$fill$cmd_duration
-        $character
-      '';
+      add_newline = false;
+      # Formatting here differs betwen systems (likely terminal emulators)
+      format = "$os$username$hostname$directory$git_branch$git_commit$git_status$fill$cmd_duration\n$character";
 
       character = {
         success_symbol = "[󰘧](bold green)";
