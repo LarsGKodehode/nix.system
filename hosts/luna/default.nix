@@ -55,7 +55,6 @@ inputs.nixpkgs.lib.nixosSystem {
       programs.nix-ld.enable = true;
 
       # Applications
-      alacritty.enable = false;
 
       # Development Toolchains
       toolchain.nix.enable = true;
