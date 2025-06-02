@@ -39,15 +39,11 @@
     }@inputs:
     let
       # Global configuration sourced by other files
-      globals =
-        let
-          baseName = "larsgunnar.no";
-        in
-        rec {
-          user = "zab";
-          gitName = "LarsGKodehode";
-          gitEmail = "104063134+LarsGKodehode@users.noreply.github.com";
-        };
+      globals = {
+        user = "zab";
+        gitName = "LarsGKodehode";
+        gitEmail = "104063134+LarsGKodehode@users.noreply.github.com";
+      };
 
       # Modifications to the declared inputs
       overlays = [ ];
