@@ -42,6 +42,11 @@ inputs.darwin.lib.darwinSystem {
       # Configuration
       networking.hostName = "lupus";
 
+      # Temporary fix for darwin-nix
+      # TODO: Remove this once the "The Plan" is implemented (switching to system wide activation)
+      # https://github.com/nix-darwin/nix-darwin/issues/1452
+      system.primaryUser = globals.user;
+
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;
         dark = true;
