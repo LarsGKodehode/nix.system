@@ -9,7 +9,7 @@
     ./networking.nix
     ./alacritty.nix
     ./homebrew.nix
-    ./sketchybar
+    # ./sketchybar # Disabled due to flickering
     ./aerospace
   ];
 }
