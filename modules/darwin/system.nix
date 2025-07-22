@@ -13,8 +13,17 @@
 
     system = {
       stateVersion = 5;
-
       defaults = {
+
+        NSGlobalDomain = {
+          # Hide the menu bar
+          _HIHideMenuBar = false;
+          # Show all extensions
+          AppleShowAllExtensions = true;
+          # Always show all files
+          AppleShowAllFiles = true;
+        };
+
         dock = {
           # Automatically show and hide the dock
           autohide = true;
