@@ -41,8 +41,8 @@
       # Global configuration sourced by other files
       globals = {
         user = "zab";
-        gitName = "LarsGKodehode";
-        gitEmail = "104063134+LarsGKodehode@users.noreply.github.com";
+        gitName = "zabronax";
+        gitEmail = "zabronax@gmail.com";
       };
 
       # Modifications to the declared inputs
