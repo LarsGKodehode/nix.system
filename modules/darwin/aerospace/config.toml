@@ -83,7 +83,7 @@ outer.right = 2
 
 # You can uncomment this line to open up terminal with cmd + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-cmd-shift-enter = 'exec-and-forget open -na alacritty'
+cmd-shift-enter = 'exec-and-forget open -na wezterm'
 cmd-shift-b = 'exec-and-forget open -a "Brave Browser"'
 cmd-shift-t = 'exec-and-forget open -a "Telegram"'
 cmd-shift-f = 'exec-and-forget open -a Finder'
@@ -172,7 +172,7 @@ if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'org.alacritty'
+if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
