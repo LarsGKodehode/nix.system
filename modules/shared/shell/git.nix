@@ -20,15 +20,18 @@
   config = {
     home-manager.users.root.programs.git = {
       enable = true;
-      extraConfig.safe.directory = config.dotfilesPath;
+      settings.safe.directory = config.dotfilesPath;
     };
 
     home-manager.users.${config.user} = {
       programs.git = {
         enable = true;
-        userName = config.gitName;
-        userEmail = config.gitEmail;
-        extraConfig = {
+        settings = {
+          user = {
+            user = config.gitName;
+            email = config.gitEmail;
+          };
+
           core.pager = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less -F";
           interactive.difffilter = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
           pager = {
