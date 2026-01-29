@@ -31,6 +31,8 @@
     };
 
     # Wallpapers repository
+    # TODO! This repository is large (3.2GB). We should likely move this
+    # out of band and do local cloning to speed up the build process.
     walls = {
       url = "github:dharmx/walls/main";
       flake = false;
