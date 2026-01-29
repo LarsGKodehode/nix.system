@@ -21,7 +21,7 @@
         tree # View directory hierarchy
         unzip # Extract zips
         dua # File sizes (du)
-        du-dust # Disk usage tree (ncdu)
+        dust # Disk usage tree (ncdu)
         duf # Basic disk information (df)
       ];
     };
