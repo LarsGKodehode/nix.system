@@ -54,6 +54,7 @@ inputs.darwin.lib.darwinSystem {
 
       # Applications
       _1password-cli.enable = true;
+      wezterm.enable = true;
 
       # Programming Toolchains
       toolchain.nix.enable = true;
