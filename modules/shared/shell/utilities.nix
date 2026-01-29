@@ -15,7 +15,7 @@
         jo # JSON output
         jq # JSON manipulation
         qrencode # Generate qr codes
-        rsync # Copy foldersj
+        rsync # Copy folders
         ripgrep # grep
         sd # sed
         tree # View directory hierarchy

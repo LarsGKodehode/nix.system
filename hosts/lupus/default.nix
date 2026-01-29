@@ -7,7 +7,7 @@
 inputs.darwin.lib.darwinSystem {
   system = "aarch64-darwin";
 
-  # The modules list is exectued in order
+  # The modules list is executed in order
   modules = [
     # Unfree predicate for system packages
     # Needs to happen before any nixpkgs consumers are called
