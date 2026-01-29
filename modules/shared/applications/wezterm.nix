@@ -61,8 +61,31 @@
           -- Launch fish shell by default
           config.default_prog = { '${pkgs.fish}/bin/fish', '-l' }
 
+          -- Enable daemon mode for faster window opening
+          config.daemon_options = {
+            stdout = '${config.homePath}/.local/share/wezterm/stdout',
+            stderr = '${config.homePath}/.local/share/wezterm/stderr',
+            pid_file = '${config.homePath}/.local/share/wezterm/pid',
+          }
+
           return config
         '';
+      };
+
+      # Keep WezTerm running in background for instant window opening (macOS only)
+      # WezTerm's mux server handles fast window creation automatically
+      launchd.agents.wezterm = lib.mkIf pkgs.stdenv.isDarwin {
+        enable = true;
+        config = {
+          Label = "com.github.wez.wezterm";
+          ProgramArguments = [
+            "${pkgs.wezterm}/Applications/WezTerm.app/Contents/MacOS/wezterm"
+            "gui"
+          ];
+          RunAtLoad = true;
+          KeepAlive = true;
+          ProcessType = "Background";
+        };
       };
     };
   };
