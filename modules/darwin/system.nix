@@ -24,6 +24,21 @@
           AppleShowAllFiles = true;
           # Force dark mode (can be overridden by user preference)
           AppleInterfaceStyle = "Dark";
+
+          # Disable animations for instant, snappy UI
+          # Window animations
+          NSWindowResizeTime = 0.001; # Nearly instant window resizing
+          NSAutomaticWindowAnimationsEnabled = false; # Disable window open/close animations
+
+          # Additional performance tweaks
+          ApplePressAndHoldEnabled = false; # Disable press-and-hold character picker (faster typing)
+        };
+
+        # Reduce motion and disable transparency for performance
+        # Using CustomSystemPreferences as universalaccess domain has write restrictions
+        CustomSystemPreferences."com.apple.Accessibility" = {
+          ReduceMotionEnabled = 1; # Reduce motion globally
+          ReduceTransparencyEnabled = 1; # Disable transparency effects
         };
 
         dock = {
@@ -39,10 +54,17 @@
           # Highlight hover effect in dock stack grid view
           mouse-over-hilite-stack = true;
 
-          mineffect = "genie";
+          # Disable dock animation for instant response
+          mineffect = "scale"; # Fastest minimize effect (scale is faster than genie/suck)
           orientation = "left";
           show-recents = false;
           tilesize = 44;
+
+          # Disable dock animations
+          launchanim = false; # Disable launch animations
+          autohide-delay = 0.0; # Instant dock hide/show
+          autohide-time-modifier = 0.0; # No animation delay
+          expose-animation-duration = 0.0; # Instant Mission Control animations
 
           persistent-apps = [
             "/Applications/1Password.app"
