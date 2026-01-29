@@ -29,6 +29,12 @@
       url = "github:nix-community/nix-ld-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Wallpapers repository
+    walls = {
+      url = "github:dharmx/walls/main";
+      flake = false;
+    };
   };
 
   outputs =

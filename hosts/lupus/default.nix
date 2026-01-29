@@ -56,6 +56,15 @@ inputs.darwin.lib.darwinSystem {
       _1password-cli.enable = true;
       wezterm.enable = true;
 
+      # Desktop
+      wallpaper = {
+        enable = true;
+        sourcePath = {
+          source = inputs.walls;
+          path = "architecture/a_group_of_tall_buildings_in_a_city.jpg";
+        };
+      };
+
       # Programming Toolchains
       toolchain.nix.enable = true;
       toolchain.kubernetes.enable = true;
