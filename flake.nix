@@ -96,6 +96,6 @@
 
       # For formatting the repository
       # "nix fmt"
-      formatter = withPkgs (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = withPkgs (pkgs: pkgs.nixfmt);
     };
 }
