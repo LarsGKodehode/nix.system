@@ -57,6 +57,7 @@ inputs.darwin.lib.darwinSystem {
 
       # Programming Toolchains
       toolchain.nix.enable = true;
+      toolchain.kubernetes.enable = true;
     }
   ];
 }
