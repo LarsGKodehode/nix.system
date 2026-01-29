@@ -14,6 +14,7 @@
         jless # JSON viewer
         jo # JSON output
         jq # JSON manipulation
+        yq # YAML manipulation
         qrencode # Generate qr codes
         rsync # Copy folders
         ripgrep # grep
