@@ -21,6 +21,9 @@
         })
         config.font_size = 20.0
 
+        -- Launch fish shell by default
+        config.default_prog = { '${pkgs.fish}/bin/fish', '-l' }
+
         return config
       '';
     };
