@@ -7,7 +7,8 @@
     ./system.nix
     ./user.nix
     ./networking.nix
-    ./alacritty.nix
+    ./wezterm.nix
+    # ./alacritty.nix  # Disabled in favor of WezTerm
     ./aerospace
   ];
 }

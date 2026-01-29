@@ -44,7 +44,7 @@
 
           persistent-apps = [
             "/Applications/1Password.app"
-            "${pkgs.alacritty}/Applications/Alacritty.app"
+            "${pkgs.wezterm}/Applications/WezTerm.app"
           ];
         };
       };
