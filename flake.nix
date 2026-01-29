@@ -49,24 +49,14 @@
       overlays = [ ];
 
       # Helpers for generating attribute sets across systems
-      withSystem = nixpkgs.lib.genAttrs [
+      supportedSystems = [
         "x86_64-linux"
         # "x86_64-darwin"
         # "aarch64-linux"
         "aarch64-darwin"
       ];
-
-      withPkgs =
-        callback:
-        withSystem (
-          system:
-          callback (
-            import nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            }
-          )
-        );
+      withSystem = nixpkgs.lib.genAttrs supportedSystems;
+      withPkgs = callback: withSystem (system: callback (import nixpkgs { inherit system; }));
     in
     {
       # Full NixOS builds
