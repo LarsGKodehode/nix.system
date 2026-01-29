@@ -167,22 +167,28 @@ cmd-shift-k = ['join-with up', 'mode main']
 cmd-shift-l = ['join-with right', 'mode main']
 
 # Window detection rules…
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace 1'
+# Workspace 1: Free for all (no rules, default workspace)
 
+# Workspace 2: IDEs
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
+if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'com.tdesktop.Telegram'
+if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
+run = 'move-node-to-workspace 2'
+
+# Workspace 3: Direct Messaging
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace 3'
 
+# Workspace 4: Terminal
 [[on-window-detected]]
-if.app-id = 'com.obsproject.obs-studio'
+if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace 4'
 
+# Workspace 9: Recording
 [[on-window-detected]]
-if.app-id = 'us.zoom.xos'
-run = 'move-node-to-workspace 5'
+if.app-id = 'com.obsproject.obs-studio'
+run = 'move-node-to-workspace 9'
