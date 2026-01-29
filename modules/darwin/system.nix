@@ -41,6 +41,10 @@
           ReduceTransparencyEnabled = 1; # Disable transparency effects
         };
 
+        # Displays have separate Spaces (improves performance, reduces glitching)
+        # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+        spaces.spans-displays = false; # Each display gets separate Spaces
+
         dock = {
           # Automatically show and hide the dock
           autohide = true;
