@@ -1,20 +1,42 @@
 # Nix Systems
 
-## [Hosts](/host/)
+Personal Nix configuration for macOS and WSL systems.
 
-Set of configured hosts systems.
+## Quick Start
 
-### MacOS
+### macOS
 ```sh
-nix run nix-darwin -- switch --flake github:larsgkodehode/nix.system#<host-name>
+sudo darwin-rebuild switch --flake .#<host-name>
 ```
 
-### WSL
-
-1. Download WSL image from [officual realease channel](https://github.com/nix-community/NixOS-WSL/releases) and follow their instructions.
-2. Rebuild into the derivation provided here
+### WSL (luna)
 ```sh
-sudo nixos-rebuild switch --flake github:larsgkodehode/nix.system#luna
+sudo nixos-rebuild switch --flake .#luna
 ```
-3. (Optional) If you want to use the provided shell run `fish` inside the WSL container
+
+## Hosts
+
+- **lupus** - Daily driver MacBook Air
+- **minmus** - Minimal macOS system
+- **luna** - WSL development environment
+
+## Structure
+
+- `hosts/` - Host-specific configurations
+- `modules/shared/` - Cross-platform modules (shell, fonts, programming tools)
+- `modules/darwin/` - macOS-specific modules (WezTerm, Aerospace, system settings)
+- `colorscheme/` - Theme definitions (Base16 format)
+
+## Common Commands
+
+```sh
+# Format code
+nix fmt
+
+# Update flake lock
+nix flake update
+
+# Enter dev shell
+nix develop
+```
 
