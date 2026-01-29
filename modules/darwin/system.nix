@@ -22,6 +22,8 @@
           AppleShowAllExtensions = true;
           # Always show all files
           AppleShowAllFiles = true;
+          # Force dark mode (can be overridden by user preference)
+          AppleInterfaceStyle = "Dark";
         };
 
         dock = {
