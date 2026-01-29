@@ -26,7 +26,6 @@
     };
   };
 
-
   # faster rebuilding
   documentation = {
     doc.enable = false;

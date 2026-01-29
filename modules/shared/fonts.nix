@@ -9,7 +9,7 @@
   home-manager.users.${config.user} = {
     fonts.fontconfig = {
       defaultFonts = {
-        monospace = ["Monaspace Argon, Symbols Nerd Font"];
+        monospace = [ "Monaspace Argon, Symbols Nerd Font" ];
       };
       enable = true;
     };
