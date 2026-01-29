@@ -19,7 +19,7 @@
           'Monaspace Argon NF',
           'Symbols Nerd Font',
         })
-        config.font_size = 20.0
+        config.font_size = 12.0
 
         -- Launch fish shell by default
         config.default_prog = { '${pkgs.fish}/bin/fish', '-l' }
