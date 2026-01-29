@@ -51,9 +51,9 @@
       # Helpers for generating attribute sets across systems
       supportedSystems = [
         "x86_64-linux"
-        # "x86_64-darwin"
-        # "aarch64-linux"
         "aarch64-darwin"
+        "x86_64-darwin" # TODO! Not verified, but likely to work
+        "aarch64-linux" # TODO! Not verified, but likely to work
       ];
       withSystem = nixpkgs.lib.genAttrs supportedSystems;
       withPkgs = callback: withSystem (system: callback (import nixpkgs { inherit system; }));
