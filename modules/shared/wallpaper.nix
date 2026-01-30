@@ -59,6 +59,7 @@ in
               filter = lib.mkOption {
                 type = lib.types.functionTo lib.types.bool;
                 description = "Nix predicate function for filtering wallpapers. Takes a wallpaper path (relative to source) and returns true if it should be included.";
+                default = _: true;
                 example = "path: builtins.match \"^apocalypse/.*\" path != null";
               };
             };
@@ -104,7 +105,7 @@ in
                   ProgramArguments = [
                     "${wallpaperScript}/bin/darwin-set-wallpaper"
                     "exact"
-                    "${config.wallpaper.source}/${config.wallpaper.path}"
+                    "${sourceToPath config.wallpaper.source}/${config.wallpaper.path}"
                   ];
                   RunAtLoad = true;
                   KeepAlive = false;
