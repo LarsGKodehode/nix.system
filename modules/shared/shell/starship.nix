@@ -61,10 +61,6 @@
         ssh_only = false;
       };
 
-      fill = {
-        symbol = " ";
-      };
-
       cmd_duration = {
         format = "[$duration]($style)";
         min_time = 1000;
