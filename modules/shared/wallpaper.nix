@@ -5,6 +5,19 @@
   ...
 }:
 
+let
+  # Platform-agnostic functions for wallpaper processing pipeline
+
+  # Extract the store path from a source (derivation or path)
+  sourceToPath = source: if lib.isDerivation source then source.outPath else source;
+
+  # Project a source repository (derivation or path) into a set of absolute filepaths
+  projectSourceToFilepaths = source: lib.filesystem.listFilesRecursive (sourceToPath source);
+
+  # Fold a set of absolute filepaths into a Nix derivation containing the list
+  foldFilepathsToDerivation =
+    filepaths: name: pkgs.writeText name (lib.concatStringsSep "\n" (map toString filepaths));
+in
 {
   options = {
     wallpaper = {
@@ -54,6 +67,20 @@
         description = "Dynamic wallpaper selection configuration.";
         default = null;
       };
+
+      # Supported image file extensions for wallpapers
+      supportedExtensions = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        description = "List of supported image file extensions (with leading dot).";
+        default = [
+          ".jpg"
+          ".jpeg"
+          ".png"
+          ".gif"
+          ".heic"
+          ".webp"
+        ];
+      };
     };
   };
 
@@ -62,16 +89,6 @@
       # macOS-specific wallpaper configuration
       (lib.mkIf pkgs.stdenv.isDarwin (
         let
-          # Supported image file extensions for macOS wallpapers
-          supportedImageExtensions = [
-            ".jpg"
-            ".jpeg"
-            ".png"
-            ".gif"
-            ".heic"
-            ".webp"
-          ];
-
           # Load unified wallpaper script
           wallpaperScript = pkgs.writeShellScriptBin "darwin-set-wallpaper" (
             builtins.readFile ./wallpaper/darwin-set-wallpaper.sh
@@ -99,40 +116,34 @@
           # Dynamic wallpaper mode (random selection with filter)
           dynamicConfig = lib.mkIf (config.wallpaper.dynamic != null) (
             let
-              # Convert interval to seconds for launchd StartInterval
+              # Derivation file list from source
+              allFilepaths = projectSourceToFilepaths config.wallpaper.source;
+
+              # Bind platform filter to supported formats
+              darwinSupportedWallpaperFormats = config.wallpaper.supportedExtensions;
+              formatFilter =
+                absPath: lib.any (ext: lib.hasSuffix ext (toString absPath)) darwinSupportedWallpaperFormats;
+
+              # Bind user filter to derivation directory
+              sourcePathStr = toString (sourceToPath config.wallpaper.source);
+              userFilter =
+                absPath:
+                config.wallpaper.dynamic.filter (lib.removePrefix (sourcePathStr + "/") (toString absPath));
+
+              # Compose filters together
+              filteredFilepaths = lib.filter userFilter (lib.filter formatFilter allFilepaths);
+
+              # Fold to derivation and use in launchd agent
+              wallpaperListFile = foldFilepathsToDerivation filteredFilepaths "wallpaper-list.txt";
+
+              # Map interval to launchd interval
               intervalSeconds =
                 {
-                  hourly = 3600; # 1 hour
-                  daily = 86400; # 24 hours
-                  weekly = 604800; # 7 days
+                  hourly = 3600;
+                  daily = 86400;
+                  weekly = 604800;
                 }
                 .${config.wallpaper.dynamic.interval};
-
-              # Find all wallpapers in source directory and filter them
-              sourcePath = config.wallpaper.source;
-              sourcePathStr = toString sourcePath;
-              allFiles = lib.filesystem.listFilesRecursive sourcePath;
-              # Filter to image files only using supported extensions
-              imageFiles = lib.filter (
-                absPath:
-                let
-                  pathStr = toString absPath;
-                in
-                lib.any (ext: lib.hasSuffix ext pathStr) supportedImageExtensions
-              ) allFiles;
-              # Convert absolute paths to relative paths for the filter function
-              filteredWallpapers = lib.filter (
-                absPath:
-                let
-                  relPath = lib.removePrefix (sourcePathStr + "/") (toString absPath);
-                in
-                config.wallpaper.dynamic.filter relPath
-              ) imageFiles;
-
-              # Generate wallpaper list file as a Nix derivation
-              wallpaperListFile = pkgs.writeText "wallpaper-list.txt" (
-                lib.concatStringsSep "\n" filteredWallpapers
-              );
             in
             {
               home-manager.users.${config.user} = {
