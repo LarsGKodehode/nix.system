@@ -13,49 +13,47 @@
         default = false;
       };
 
-      # Static wallpaper: specify a concrete path
-      # Example: wallpaper.path = { source = inputs.walls; path = "aerial/wallpaper.jpg"; }
+      source = lib.mkOption {
+        type = lib.types.path;
+        description = "Flake input source containing wallpapers (e.g., inputs.walls).";
+        example = "inputs.walls";
+      };
+
+      # Static wallpaper: specify a concrete path relative to source
+      # Example: wallpaper.path = "aerial/wallpaper.jpg";
       path = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        description = "Path to image file relative to the source root (for static wallpaper mode).";
+        default = null;
+        example = "gruvbox/a_landscape_with_mountains_and_trees.jpg";
+      };
+
+      # Dynamic wallpaper: random selection with interval and filter
+      dynamic = lib.mkOption {
         type = lib.types.nullOr (
           lib.types.submodule {
             options = {
-              source = lib.mkOption {
-                type = lib.types.path;
-                description = "Flake input source (e.g., inputs.walls).";
+              interval = lib.mkOption {
+                type = lib.types.enum [
+                  "hourly"
+                  "daily"
+                  "weekly"
+                ];
+                description = "Interval for random wallpaper updates.";
+                example = "hourly";
               };
-              path = lib.mkOption {
-                type = lib.types.str;
-                description = "Path to image file relative to the source root.";
+
+              filter = lib.mkOption {
+                type = lib.types.functionTo lib.types.bool;
+                description = "Nix predicate function for filtering wallpapers. Takes a wallpaper path (relative to source) and returns true if it should be included.";
+                example = "path: builtins.match \"^apocalypse/.*\" path != null";
               };
             };
           }
         );
-        description = "Static wallpaper path relative to a flake input source.";
+        description = "Dynamic wallpaper selection configuration.";
         default = null;
       };
-
-      # Dynamic wallpaper: specify an interval for random wallpaper updates
-      # The wallpaper list will be determined by the filter predicate (not yet implemented)
-      # Example: wallpaper.interval = "hourly";
-      interval = lib.mkOption {
-        type = lib.types.nullOr (
-          lib.types.enum [
-            "hourly"
-            "daily"
-            "weekly"
-          ]
-        );
-        description = "Interval for random wallpaper updates. If set, enables dynamic wallpaper mode. Wallpaper list will be determined by filter predicate.";
-        default = null;
-        example = "hourly";
-      };
-
-      # Future: filter predicate (Nix function) for filtering wallpapers
-      # filter = lib.mkOption {
-      #   type = lib.types.nullOr lib.types.functionTo lib.types.bool;
-      #   description = "Nix predicate function for filtering wallpapers (not yet implemented).";
-      #   default = null;
-      # };
     };
   };
 
@@ -64,6 +62,16 @@
       # macOS-specific wallpaper configuration
       (lib.mkIf pkgs.stdenv.isDarwin (
         let
+          # Supported image file extensions for macOS wallpapers
+          supportedImageExtensions = [
+            ".jpg"
+            ".jpeg"
+            ".png"
+            ".gif"
+            ".heic"
+            ".webp"
+          ];
+
           # Load unified wallpaper script
           wallpaperScript = pkgs.writeShellScriptBin "darwin-set-wallpaper" (
             builtins.readFile ./wallpaper/darwin-set-wallpaper.sh
@@ -79,7 +87,7 @@
                   ProgramArguments = [
                     "${wallpaperScript}/bin/darwin-set-wallpaper"
                     "exact"
-                    "${config.wallpaper.path.source}/${config.wallpaper.path.path}"
+                    "${config.wallpaper.source}/${config.wallpaper.path}"
                   ];
                   RunAtLoad = true;
                   KeepAlive = false;
@@ -88,9 +96,8 @@
             };
           };
 
-          # Dynamic wallpaper mode (interval-based random selection)
-          # TODO: Wallpaper list will be generated from filter predicate when implemented
-          dynamicConfig = lib.mkIf (config.wallpaper.interval != null) (
+          # Dynamic wallpaper mode (random selection with filter)
+          dynamicConfig = lib.mkIf (config.wallpaper.dynamic != null) (
             let
               # Convert interval to seconds for launchd StartInterval
               intervalSeconds =
@@ -99,13 +106,32 @@
                   daily = 86400; # 24 hours
                   weekly = 604800; # 7 days
                 }
-                .${config.wallpaper.interval};
+                .${config.wallpaper.dynamic.interval};
+
+              # Find all wallpapers in source directory and filter them
+              sourcePath = config.wallpaper.source;
+              sourcePathStr = toString sourcePath;
+              allFiles = lib.filesystem.listFilesRecursive sourcePath;
+              # Filter to image files only using supported extensions
+              imageFiles = lib.filter (
+                absPath:
+                let
+                  pathStr = toString absPath;
+                in
+                lib.any (ext: lib.hasSuffix ext pathStr) supportedImageExtensions
+              ) allFiles;
+              # Convert absolute paths to relative paths for the filter function
+              filteredWallpapers = lib.filter (
+                absPath:
+                let
+                  relPath = lib.removePrefix (sourcePathStr + "/") (toString absPath);
+                in
+                config.wallpaper.dynamic.filter relPath
+              ) imageFiles;
+
               # Generate wallpaper list file as a Nix derivation
-              # TODO: This will be populated from filter predicate (Nix function) when implemented
-              # For now, generate an empty file - dynamic mode won't work until filter predicate is implemented
               wallpaperListFile = pkgs.writeText "wallpaper-list.txt" (
-                # Empty file for now - will be populated by filter predicate
-                ""
+                lib.concatStringsSep "\n" filteredWallpapers
               );
             in
             {

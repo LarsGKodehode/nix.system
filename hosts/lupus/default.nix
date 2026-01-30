@@ -59,9 +59,10 @@ inputs.darwin.lib.darwinSystem {
       # Desktop
       wallpaper = {
         enable = true;
-        path = {
-          source = inputs.walls;
-          path = "gruvbox/a_landscape_with_mountains_and_trees.jpg";
+        source = inputs.walls;
+        dynamic = {
+          interval = "hourly";
+          filter = path: builtins.match "^apocalypse/.*" path != null;
         };
       };
 
