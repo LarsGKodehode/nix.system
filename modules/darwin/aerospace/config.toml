@@ -178,17 +178,25 @@ run = 'move-node-to-workspace 2'
 if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
 run = 'move-node-to-workspace 2'
 
-# Workspace 3: Direct Messaging
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 3'
-
-# Workspace 4: Terminal
+# Workspace 3: Command Hub (Terminal)
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace 3'
 
-# Workspace 9: Recording
+# Workspace 4: Free for all (no rules)
+
+# Workspace 5: Free for all (no rules)
+
+# Workspace 6: Free for all (no rules)
+
+# Workspace 7: Free for all (no rules)
+
+# Workspace 8: Recording
 [[on-window-detected]]
 if.app-id = 'com.obsproject.obs-studio'
+run = 'move-node-to-workspace 8'
+
+# Workspace 9: Direct Messaging and Socials
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace 9'
