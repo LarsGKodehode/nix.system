@@ -30,7 +30,7 @@
       };
 
       git_commit = {
-        format = " (@[$hash]($style) )";
+        format = " (@[$hash]($style))";
         only_detached = false;
       };
 
