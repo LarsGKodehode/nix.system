@@ -36,20 +36,23 @@
 
       git_status = {
         # Semantic coloring:
-        # - Red: divergence (major issue)
         # - Yellow: uncommitted changes (needs attention)
         # - Blue: upstream differences (sync needed)
         # Custom format splitting out individual status variables for color control
-        # Using background colors and bold for better visibility
-        format = "([$modified$deleted$staged$untracked](bg:bright-yellow bold)[$ahead$behind](bg:bright-blue bold)[$diverged](bg:bright-red bold))";
+        # Format: uncommitted changes (yellow) | upstream status (blue)
+        # $ahead_behind is a smart variable that shows: diverged, ahead, behind, or up_to_date
+        format = "([$modified$deleted$staged$untracked](bg:bright-yellow bold)[$ahead_behind](bg:bright-blue bold))";
         # Actionable states that require attention
-        modified = "∽";  # Dirty working directory (modified files)
-        deleted = "✘";   # Tracked file deleted from working directory
-        untracked = "⋄"; # Untracked files
-        staged = "+";    # Staged but not committed
-        ahead = "⇡";     # Committed but not pushed
-        behind = "⇣";    # Behind upstream
-        diverged = "⇕";  # Diverged from upstream
+        # Working directory states (letters for clarity)
+        modified = "M";   # Dirty working directory (modified files)
+        deleted = "D";    # Tracked file deleted from working directory
+        untracked = "U";  # Untracked files
+        staged = "S";     # Staged but not committed
+        # Upstream states (mathematical symbols for difference)
+        ahead = "Δ";      # Committed but not pushed (delta = increment)
+        behind = "∇";     # Behind upstream (nabla = divergence operator)
+        diverged = "Δ∇";  # Diverged from upstream (both delta and nabla)
+        up_to_date = "";  # No upstream differences (empty, clean state)
       };
 
       username = {
