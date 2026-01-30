@@ -61,7 +61,7 @@ inputs.darwin.lib.darwinSystem {
         enable = true;
         sourcePath = {
           source = inputs.walls;
-          path = "architecture/a_group_of_tall_buildings_in_a_city.jpg";
+          path = "gruvbox/a_landscape_with_mountains_and_trees.jpg";
         };
       };
 
