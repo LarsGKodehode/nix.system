@@ -35,18 +35,20 @@
       };
 
       git_status = {
-        format = "([$all_status$ahead_behind]($style))";
-        conflicted = "=";
-        ahead = "⇡";
-        behind = "⇣";
-        diverged = "⇕";
-        untracked = "⋄";
-        stashed = "⩮";
-        modified = "∽";
-        staged = "+";
-        renamed = "»";
-        deleted = "✘";
-        style = "red";
+        # Semantic coloring:
+        # - Red: divergence (major issue)
+        # - Yellow: uncommitted changes (needs attention)
+        # - Blue: upstream differences (sync needed)
+        # Custom format splitting out individual status variables for color control
+        format = "([$modified$deleted$staged$untracked](yellow)[$ahead$behind](blue)[$diverged](red))";
+        # Actionable states that require attention
+        modified = "∽";  # Dirty working directory (modified files)
+        deleted = "✘";   # Tracked file deleted from working directory
+        untracked = "⋄"; # Untracked files
+        staged = "+";    # Staged but not committed
+        ahead = "⇡";     # Committed but not pushed
+        behind = "⇣";    # Behind upstream
+        diverged = "⇕";  # Diverged from upstream
       };
 
       username = {
