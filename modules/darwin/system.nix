@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -22,8 +23,8 @@
           AppleShowAllExtensions = true;
           # Always show all files
           AppleShowAllFiles = true;
-          # Force dark mode (can be overridden by user preference)
-          AppleInterfaceStyle = "Dark";
+          # Set dark mode based on theme configuration
+          AppleInterfaceStyle = if config.theme.dark then "Dark" else "Light";
 
           # Disable animations for instant, snappy UI
           # Window animations
