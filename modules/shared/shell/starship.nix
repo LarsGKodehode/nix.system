@@ -9,10 +9,10 @@
     enableFishIntegration = true;
     settings = {
       add_newline = false;
-      # Formatting here differs betwen systems (likely terminal emulators)
-      format = "$os$username$hostname $directory\n$character";
-      # Right-aligned contextual information (cmd duration and git info)
-      right_format = "$cmd_duration$git_status $git_branch$git_commit";
+      # First line: stable context with git context on right
+      format = "$os$username$hostname $directory$fill$git_branch$git_commit\n$character";
+      # Second line: dynamic information aligned right
+      right_format = "$cmd_duration$git_status";
 
       character = {
         success_symbol = "[󰘧](bold green)";
@@ -59,6 +59,10 @@
       hostname = {
         format = "[@](dimmed)[$hostname](purple)";
         ssh_only = false;
+      };
+
+      fill = {
+        symbol = " ";
       };
 
       cmd_duration = {
