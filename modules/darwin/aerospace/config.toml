@@ -178,9 +178,17 @@ run = 'move-node-to-workspace 2'
 if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
 run = 'move-node-to-workspace 2'
 
-# Workspace 3: Command Hub (Terminal)
+# Workspace 3: Command Hub (Terminal + Container Runtimes)
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'dev.kdrag0n.MacVirt' # OrbStack
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.docker.docker'  # Docker Desktop
 run = 'move-node-to-workspace 3'
 
 # Workspace 4: Free for all (no rules)
