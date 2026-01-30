@@ -9,6 +9,7 @@
   imports = [
     ./nixpkgs.nix
     ./fonts.nix
+    ./wallpaper.nix
     ./shell
     ./applications
     ./programming
