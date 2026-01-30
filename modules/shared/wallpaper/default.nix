@@ -92,7 +92,7 @@ in
         let
           # Load unified wallpaper script
           wallpaperScript = pkgs.writeShellScriptBin "darwin-set-wallpaper" (
-            builtins.readFile ./wallpaper/darwin-set-wallpaper.sh
+            builtins.readFile ./darwin-set-wallpaper.sh
           );
 
           # Static wallpaper mode
