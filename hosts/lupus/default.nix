@@ -48,7 +48,7 @@ inputs.darwin.lib.darwinSystem {
       system.primaryUser = globals.user;
 
       theme = {
-        colors = (import ../../colorscheme/gruvbox-dark).dark;
+        colors = (import ../../colorscheme/ashes).theme;
         dark = true;
       };
 
