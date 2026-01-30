@@ -1,4 +1,15 @@
-# Nix Systems
+<h1 align="center">
+ <img height="160" src="https://brand.nixos.org/logos/nixos-logo-rainbow-gradient-white-regular-horizontal-recommended.svg" />
+ <p>Nix System Config for <a href="https://github.com/LarsGKodehode">zabronax</a></p>
+</h1>
+
+<p align="center">
+ <a href="https://github.com/LarsGKodehode/nix.system/stargazers"><img src="https://img.shields.io/github/stars/LarsGKodehode/nix.system?colorA=282828&colorB=fabd2f&style=for-the-badge"></a>
+ <a href="https://github.com/LarsGKodehode/nix.system/commits"><img src="https://img.shields.io/github/last-commit/LarsGKodehode/nix.system?colorA=282828&colorB=d79921&style=for-the-badge"></a>
+ <a href="https://github.com/LarsGKodehode/nix.system/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LarsGKodehode/nix.system?colorA=282828&colorB=83a598&style=for-the-badge"></a>
+ <a href="https://wiki.nixos.org/wiki/Flakes" target="_blank">
+ <img alt="Nix Flakes Ready" src="https://img.shields.io/static/v1?logo=nixos&logoColor=ebdbb2&label=Nix%20Flakes&labelColor=458588&message=Ready&color=ebdbb2&style=for-the-badge"></a>
+</p>
 
 Personal Nix configuration for macOS and WSL systems.
 
