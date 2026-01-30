@@ -33,10 +33,14 @@ sudo nixos-rebuild switch --flake .#luna
 
 ## Structure
 
-- `hosts/` - Host-specific configurations
-- `modules/shared/` - Cross-platform modules (shell, fonts, programming tools)
-- `modules/darwin/` - macOS-specific modules (Aerospace, system settings)
-- `colorscheme/` - Theme definitions (Base16 format)
+```sh
+.
+├ colorscheme    # Base16 theme definitions
+├ hosts          # Host-specific compositions
+└ modules
+  ├ darwin       # macOS-specific
+  └ shared       # Cross-platform
+```
 
 ## Common Commands
 
