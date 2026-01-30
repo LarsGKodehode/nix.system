@@ -38,22 +38,17 @@
         # Semantic coloring:
         # - Yellow: uncommitted changes (needs attention)
         # - Blue: upstream differences (sync needed)
-        # Custom format splitting out individual status variables for color control
-        # Format: uncommitted changes (yellow) | upstream status (blue)
-        # $ahead_behind is a smart variable that shows: diverged, ahead, behind, or up_to_date
-        # Whitespace between groups for visual separation
         format = "([$modified$deleted$staged$untracked](bright-yellow bold) [$ahead_behind](bright-blue bold))";
         # Actionable states that require attention
-        # Working directory states (letters for clarity)
-        modified = "M";   # Dirty working directory (modified files)
-        deleted = "D";    # Tracked file deleted from working directory
-        untracked = "U";  # Untracked files
-        staged = "S";     # Staged but not committed
+        modified = "M";
+        deleted = "D";
+        untracked = "U";
+        staged = "S";
         # Upstream states (mathematical symbols for difference)
-        ahead = "Δ\${count}";      # Committed but not pushed (delta = increment)
-        behind = "∇\${count}";     # Behind upstream (nabla = divergence operator)
-        diverged = "Δ∇\${ahead_count}/\${behind_count}";  # Diverged from upstream (both delta and nabla)
-        up_to_date = "";  # No upstream differences (empty, clean state)
+        ahead = "Δ\${count}";
+        behind = "∇\${count}";
+        diverged = "Δ∇\${ahead_count}/\${behind_count}";
+        up_to_date = "";
       };
 
       username = {
