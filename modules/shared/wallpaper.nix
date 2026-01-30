@@ -154,7 +154,7 @@ in
                     Label = "com.system.random-wallpaper";
                     ProgramArguments = [
                       "${wallpaperScript}/bin/darwin-set-wallpaper"
-                      "list"
+                      "random"
                       (toString wallpaperListFile)
                     ];
                     StartInterval = intervalSeconds;
