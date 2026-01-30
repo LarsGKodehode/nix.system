@@ -59,7 +59,7 @@ inputs.darwin.lib.darwinSystem {
       # Desktop
       wallpaper = {
         enable = true;
-        sourcePath = {
+        path = {
           source = inputs.walls;
           path = "gruvbox/a_landscape_with_mountains_and_trees.jpg";
         };
