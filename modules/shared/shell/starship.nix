@@ -38,16 +38,17 @@
         # Semantic coloring:
         # - Yellow: uncommitted changes (needs attention)
         # - Blue: upstream differences (sync needed)
-        format = "([$modified$deleted$staged$untracked](bright-yellow bold) [$ahead_behind](bright-blue bold))";
+        # - Red: divergence (conflict resolution needed)
+        format = "([$modified$deleted$staged$untracked](bright-yellow bold) $ahead_behind)";
         # Actionable states that require attention
         modified = "M";
         deleted = "D";
         untracked = "U";
         staged = "S";
-        # Upstream states (mathematical symbols for difference)
-        ahead = "Δ\${count}";
-        behind = "∇\${count}";
-        diverged = "Δ∇\${ahead_count}/\${behind_count}";
+        # Upstream states
+        ahead = "[Δ\${count}](bright-blue bold)";
+        behind = "[∇\${count}](bright-blue bold)";
+        diverged = "[Δ\${ahead_count}∇\${behind_count}](bright-red bold)";
         up_to_date = "";
       };
 
