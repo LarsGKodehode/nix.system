@@ -10,7 +10,9 @@
     settings = {
       add_newline = false;
       # Formatting here differs betwen systems (likely terminal emulators)
-      format = "$os$username$hostname$directory$fill$cmd_duration$git_status$git_branch$git_commit\n$character";
+      format = "$os$username$hostname$directory\n$character";
+      # Right-aligned contextual information (cmd duration and git info)
+      right_format = "$cmd_duration$git_status$git_branch$git_commit";
 
       character = {
         success_symbol = "[󰘧](bold green)";
