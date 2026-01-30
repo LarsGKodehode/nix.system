@@ -22,9 +22,6 @@ inputs.nixpkgs.lib.nixosSystem {
     inputs.wsl.nixosModules.wsl
     inputs.home-manager.nixosModules.home-manager
     {
-      # Pin state version
-      system.stateVersion = "25.05";
-
       # Replace config with our directory, as it's sourced on every launch
       system.activationScripts.configDir.text = ''
         rm -rf /etc/nixos
@@ -63,6 +60,14 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager.users.${globals.user}.home.sessionPath = [
         "/mnt/c/Users/${windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin"
       ];
+
+      # This value determines the NixOS release from which the default
+      # settings for stateful data, like file locations and database versions
+      # on your system were taken. It‘s perfectly fine and recommended to leave
+      # this value at the release version of the first install of this system.
+      # Before changing this value read the documentation for this option
+      # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+      system.stateVersion = "25.05";
     }
   ];
 }
