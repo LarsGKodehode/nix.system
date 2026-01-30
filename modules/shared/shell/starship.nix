@@ -50,9 +50,9 @@
         untracked = "U";  # Untracked files
         staged = "S";     # Staged but not committed
         # Upstream states (mathematical symbols for difference)
-        ahead = "Δ";      # Committed but not pushed (delta = increment)
-        behind = "∇";     # Behind upstream (nabla = divergence operator)
-        diverged = "Δ∇";  # Diverged from upstream (both delta and nabla)
+        ahead = "Δ\${count}";      # Committed but not pushed (delta = increment)
+        behind = "∇\${count}";     # Behind upstream (nabla = divergence operator)
+        diverged = "Δ∇\${ahead_count}/\${behind_count}";  # Diverged from upstream (both delta and nabla)
         up_to_date = "";  # No upstream differences (empty, clean state)
       };
 
