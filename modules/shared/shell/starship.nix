@@ -73,16 +73,11 @@
         format = "$symbol ";
         disabled = false;
         symbols = {
-          Alpine = "";
-          Arch = "";
-          Debian = "";
-          Kali = "";
-          Macos = "";
           NixOS = "";
-          Raspbian = "";
-          Ubuntu = "";
-          Unknown = "";
+          Debian = "";
+          Macos = "";
           Windows = "";
+          Unknown = "";
         };
       };
 
