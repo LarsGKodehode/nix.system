@@ -40,7 +40,8 @@
         # - Yellow: uncommitted changes (needs attention)
         # - Blue: upstream differences (sync needed)
         # Custom format splitting out individual status variables for color control
-        format = "([$modified$deleted$staged$untracked](yellow)[$ahead$behind](blue)[$diverged](red))";
+        # Using background colors and bold for better visibility
+        format = "([$modified$deleted$staged$untracked](bg:bright-yellow bold)[$ahead$behind](bg:bright-blue bold)[$diverged](bg:bright-red bold))";
         # Actionable states that require attention
         modified = "∽";  # Dirty working directory (modified files)
         deleted = "✘";   # Tracked file deleted from working directory
