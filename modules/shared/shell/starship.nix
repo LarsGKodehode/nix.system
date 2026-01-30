@@ -41,7 +41,8 @@
         # Custom format splitting out individual status variables for color control
         # Format: uncommitted changes (yellow) | upstream status (blue)
         # $ahead_behind is a smart variable that shows: diverged, ahead, behind, or up_to_date
-        format = "([$modified$deleted$staged$untracked](bg:bright-yellow bold)[$ahead_behind](bg:bright-blue bold))";
+        # Whitespace between groups for visual separation
+        format = "([$modified$deleted$staged$untracked](bright-yellow bold) [$ahead_behind](bright-blue bold))";
         # Actionable states that require attention
         # Working directory states (letters for clarity)
         modified = "M";   # Dirty working directory (modified files)
