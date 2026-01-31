@@ -62,6 +62,7 @@ inputs.darwin.lib.darwinSystem {
         source = inputs.walls;
         dynamic = {
           interval = "hourly";
+          filter = path: builtins.match "^apeiros/.*" path != null;
         };
       };
 
