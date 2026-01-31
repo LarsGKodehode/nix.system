@@ -1,0 +1,23 @@
+# Commit message conventions
+
+## Formatting rules
+
+- **Subject length**: Limited to 50 characters
+- **Casing**: Use lowercase, except for proper nouns
+- **Mood**: Use imperative mood (e.g., "add feature" not "added feature" or "adds feature")
+- **Conciseness**: Be concise. The diff already shows what changed and where. Focus on why or provide context.
+- **Review staging**: Always review the staging area and base the message on the content there.
+- **Body formatting**: Split bodies into paragraphs and use bullet points where sensible.
+
+## Types
+
+### Host changes
+host/<host-name>: <subject>
+
+### Module changes
+module/<add|refactor|remove>: <subject>
+
+<body explaining why>
+
+### Documentation changes
+docs: <subject>
